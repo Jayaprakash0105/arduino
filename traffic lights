@@ -1,0 +1,161 @@
+// C++ code
+int time_slot;
+// side road 1
+int red_side1=13;
+int green_side1=11;
+// main road 1
+int red_main1=12;
+int green_main1=10;
+// side road 2
+int red_side2=8;
+int green_side2=5;
+// main road 2
+int red_main2=7;
+int green_main2=9;
+void setup()
+{
+  pinMode(red_side1, OUTPUT);
+  pinMode(green_side1, OUTPUT);
+  pinMode(red_main1, OUTPUT);
+  pinMode(green_main1, OUTPUT);
+  pinMode(red_side2, OUTPUT);
+  pinMode(green_side2, OUTPUT);
+  pinMode(red_main2, OUTPUT);
+  pinMode(green_main2, OUTPUT);
+  Serial.begin(9600);
+   while(Serial.available()==0) {}
+	time_slot = Serial.parseInt();
+    Serial.println("Current Time Slot :");
+    Serial.println(time_slot);
+  
+  
+}
+
+void loop()
+{
+  if(time_slot==1){
+    digitalWrite(red_side1, HIGH);
+    digitalWrite(red_side2, HIGH);
+    digitalWrite(red_main1, HIGH);
+    digitalWrite(red_main2, HIGH);
+    analogWrite(green_side1 ,165);
+    analogWrite(green_side2 ,165);
+    analogWrite(green_main1 ,165);
+    analogWrite(green_main2 ,165);
+    delay(500);
+    digitalWrite(red_side1, LOW);
+    digitalWrite(red_side2, LOW);
+    digitalWrite(red_main1, LOW);
+    digitalWrite(red_main2, LOW);
+    analogWrite(green_side1 ,0);
+    analogWrite(green_side2 ,0);
+    analogWrite(green_main1 ,0);
+    analogWrite(green_main2 ,0);
+    delay(500);
+  }
+  if(time_slot==2||time_slot==4){
+    digitalWrite(red_side1, LOW);
+    digitalWrite(red_main1, LOW);
+    digitalWrite(red_side2, LOW);
+    digitalWrite(red_main2, LOW);
+    analogWrite(green_main2 ,0);//
+    analogWrite(green_side1 ,225);
+    digitalWrite(red_side2, HIGH);
+    digitalWrite(red_main1, HIGH);
+    digitalWrite(red_main2, HIGH);
+    delay(3000);
+    digitalWrite(red_side1, HIGH);
+    analogWrite(green_side1 ,165);
+    digitalWrite(red_side2, HIGH);
+    digitalWrite(red_main1, HIGH);
+    digitalWrite(red_main2, HIGH);
+    delay(1000);
+    digitalWrite(red_side1, LOW);
+    analogWrite(green_side1 ,0);
+    digitalWrite(red_side2, LOW);
+    digitalWrite(red_main1, LOW);
+    digitalWrite(red_main2, LOW);//
+    digitalWrite(red_side1, HIGH);
+    analogWrite(green_main1 ,225);
+    digitalWrite(red_side2, HIGH);
+    digitalWrite(red_main2, HIGH);
+    delay(3000);
+    digitalWrite(red_side1, HIGH);
+    analogWrite(green_main1 ,165);
+    digitalWrite(red_main1, HIGH);
+    digitalWrite(red_side2, HIGH);
+    digitalWrite(red_main2, HIGH);
+    delay(1000);
+    digitalWrite(red_side1, LOW);
+    analogWrite(green_main1 ,0);
+    digitalWrite(red_main1, LOW);
+    digitalWrite(red_side2, LOW);
+    digitalWrite(red_main2, LOW);//
+    digitalWrite(red_side1, HIGH);
+    digitalWrite(red_main1, HIGH);
+    analogWrite(green_side2 ,225);
+    digitalWrite(red_main2, HIGH);
+    delay(3000);
+    digitalWrite(red_side1, HIGH);
+    digitalWrite(red_main1, HIGH);
+    digitalWrite(red_side2, HIGH);
+    analogWrite(green_side2 ,165);
+    digitalWrite(red_main2, HIGH);
+    delay(1000);
+    digitalWrite(red_side1, LOW);
+    digitalWrite(red_main1, LOW);
+    digitalWrite(red_side2, LOW);
+    analogWrite(green_side2 ,0);
+    digitalWrite(red_main2, LOW);//
+    digitalWrite(red_side1, HIGH);
+    digitalWrite(red_main1, HIGH);
+    digitalWrite(red_side2, HIGH);
+    analogWrite(green_main2 ,225);
+    delay(3000);
+    digitalWrite(red_side1, HIGH);
+    digitalWrite(red_main1, HIGH);
+    digitalWrite(red_side2, HIGH);
+    digitalWrite(red_main2, HIGH);
+    analogWrite(green_main2 ,165);
+    delay(1000);
+  }
+  if(time_slot==3)
+  {
+    digitalWrite(red_side1, LOW);
+    analogWrite(green_side1 ,0);
+    digitalWrite(red_main1, LOW);
+    digitalWrite(red_side2, LOW);
+    analogWrite(green_side2 ,0);
+    digitalWrite(red_main2, LOW);//
+    digitalWrite(red_side1, HIGH);
+    analogWrite(green_main1 ,225);
+    digitalWrite(red_side2, HIGH);
+    analogWrite(green_main2 ,225);
+    delay(3000);
+    digitalWrite(red_side1, HIGH);
+    digitalWrite(red_main1, HIGH);
+    analogWrite(green_main1 ,165);
+    digitalWrite(red_side2, HIGH);
+    digitalWrite(red_main2, HIGH);
+    analogWrite(green_main2 ,165);
+    delay(1000);
+    digitalWrite(red_side1, LOW);
+    digitalWrite(red_main1, LOW);
+    analogWrite(green_main1 ,0);
+    digitalWrite(red_side2, LOW);
+    digitalWrite(red_main2, LOW);
+    analogWrite(green_main2 ,0);//
+    analogWrite(green_side1 ,225);
+    digitalWrite(red_main1, HIGH);
+    analogWrite(green_side2 ,225);
+    digitalWrite(red_main2, HIGH);
+    delay(3000);
+    digitalWrite(red_side1, HIGH);
+    analogWrite(green_side1 ,165);
+    digitalWrite(red_main1, HIGH);
+    digitalWrite(red_side2, HIGH);
+    analogWrite(green_side2 ,165);
+    digitalWrite(red_main2, HIGH);
+    delay(1000);  
+  }
+}
